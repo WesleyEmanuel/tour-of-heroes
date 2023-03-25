@@ -3,7 +3,7 @@
   <li
     *ngFor="let hero of heroes"
     [class.selected]="hero === selectedHero"
-    (click)="setHero(hero)"
+    (click)="onSelect(hero)"
   >
     <span>{{ hero.id }}</span> {{ hero.name }}
   </li>
