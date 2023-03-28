@@ -4,16 +4,26 @@
   fxLayoutAlign="space-between center"
 >
   <span>{{ title }}</span>
-  <button
-    mat-icon-button
-    aria-label="Heroes list"
-    matTooltip="Heroes"
-    routerLink="/heroes"
-  >
-    <mat-icon>sports_martial_arts</mat-icon>
-  </button>
+  <div>
+    <button
+      mat-icon-button
+      aria-label="Dashboard"
+      matTooltip="Dashboard"
+      routerLink="/dashboard"
+    >
+      <mat-icon>dashboard</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      aria-label="Heroes list"
+      matTooltip="Heroes"
+      routerLink="/heroes"
+    >
+      <mat-icon>sports_martial_arts</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
-<div class="content">
+<div class="content" fxLayoutGap="1rem">
   <router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>
