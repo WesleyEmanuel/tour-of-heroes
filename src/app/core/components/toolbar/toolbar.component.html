@@ -1,0 +1,18 @@
+<mat-toolbar
+  color="primary"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+>
+  <span>{{ title }}</span>
+  <div>
+    <button
+      mat-icon-button
+      aria-label="Dashboard"
+      *ngFor="let menuItem of menuItems"
+      [matTooltip]="menuItem.toolTipText"
+      (click)="navigateTo(menuItem.routerLink)"
+    >
+      <mat-icon>{{ menuItem.icon }}</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

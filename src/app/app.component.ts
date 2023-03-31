@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItem } from './core/models/menu-item.model';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  menuItems: MenuItem[] = [
+    {
+      icon: 'dashboard',
+      routerLink: '/dashboard',
+      toolTipText: 'Dashboard',
+    },
+    {
+      icon: 'sports_martial_arts',
+      routerLink: '/heroes',
+      toolTipText: 'Heroes',
+    },
+  ];
   constructor(private router: Router) {}
 }
