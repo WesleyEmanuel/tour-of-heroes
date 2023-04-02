@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { PageNotFoundComponent } from '../core/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: 'heroes',
+    path: '',
     component: HeroesComponent,
   },
   {
-    path: 'heroes/:id',
+    path: ':id',
     component: HeroDetailComponent,
   },
 ];

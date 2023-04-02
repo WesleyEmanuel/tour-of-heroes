@@ -4,14 +4,16 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MessagesComponent } from '../messages/messages.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RouterModule } from '@angular/router';
 
-const COMPONENTS = [MessagesComponent, ToolbarComponent];
-const MODULES = [MaterialModule, FlexLayoutModule];
+const COMPONENTS = [MessagesComponent, ToolbarComponent, PageNotFoundComponent];
+const MODULES = [MaterialModule, FlexLayoutModule, RouterModule];
 
 @NgModule({
   declarations: [COMPONENTS],
   imports: [CommonModule, MODULES],
-  exports: [COMPONENTS, MaterialModule, MODULES],
+  exports: [COMPONENTS, MODULES],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
