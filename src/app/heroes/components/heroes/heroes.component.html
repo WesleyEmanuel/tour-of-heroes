@@ -1,4 +1,7 @@
-<h2>My Heroes</h2>
+<div fxLayout fxLayoutAlign="space-between">
+  <h2>My Heroes</h2>
+  <button mat-raised-button color="primary" routerLink="new">New Hero</button>
+</div>
 <mat-table [dataSource]="heroes">
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
