@@ -19,10 +19,16 @@
         />
       </mat-form-field>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="goBack()" color="primary">
-        Go Back
+    <mat-card-actions fxLayout fxLayoutGap="1rem">
+      <button
+        mat-raised-button
+        (click)="save()"
+        color="primary"
+        [disabled]="isEmptyForm()"
+      >
+        Save
       </button>
+      <button mat-raised-button (click)="goBack()">Go Back</button>
     </mat-card-actions>
   </mat-card>
 </div>

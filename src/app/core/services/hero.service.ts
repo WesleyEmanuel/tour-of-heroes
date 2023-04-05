@@ -32,6 +32,12 @@ export class HeroService {
     );
   }
 
+  updateHero(hero: Hero): Observable<Hero> {
+    return this.http
+      .put<Hero>(`${this.apiUrl}/${hero.id}`, hero)
+      .pipe(tap((hero) => this.log(hero.name + ' successfully updated')));
+  }
+
   private log(message: string): void {
     this.messageService.add(`HeroService: ${message}`);
   }
