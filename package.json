@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "db": "json-server -w src/mocks/db.json -r src/mocks/routes.json -d 600"
+    "api": "json-server -w src/mocks/db.json -r src/mocks/routes.json -d 600"
   },
   "private": true,
   "dependencies": {
