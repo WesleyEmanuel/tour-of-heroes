@@ -1,44 +1,50 @@
 <div>
   <h1>{{ isEditing ? "Update" : "Create" }} Hero</h1>
 
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <mat-form-field *ngIf="isEditing">
-        <mat-label>ID</mat-label>
-        <input matInput disabled [value]="hero.id" />
-      </mat-form-field>
+  <form [formGroup]="form" novalidate>
+    <mat-card>
+      <mat-card-content fxLayout="column">
+        <mat-form-field *ngIf="isEditing">
+          <mat-label>ID</mat-label>
+          <input matInput formControlName="id" />
+        </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input
-          matInput
-          id="name"
-          [(ngModel)]="hero.name"
-          placeholder="Name"
-          type="text"
-        />
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions fxLayout fxLayoutGap="1rem">
-      <button
-        mat-raised-button
-        (click)="saveHero()"
-        color="primary"
-        *ngIf="isEditing"
-        [disabled]="isEmptyForm()"
-      >
-        Save
-      </button>
-      <button
-        mat-raised-button
-        (click)="createHero()"
-        color="primary"
-        *ngIf="!isEditing"
-        [disabled]="isEmptyForm()"
-      >
-        Create
-      </button>
-      <button mat-raised-button (click)="goBack()">Go Back</button>
-    </mat-card-actions>
-  </mat-card>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            id="name"
+            placeholder="Name"
+            type="text"
+            formControlName="name"
+          />
+          <mat-error *ngIf="form.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="form.controls['name'].hasError('minlength')">
+            Name shoud contain at least 3 characters
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayout fxLayoutGap="1rem">
+        <button
+          mat-raised-button
+          (click)="saveHero()"
+          color="primary"
+          *ngIf="isEditing"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          (click)="createHero()"
+          color="primary"
+          *ngIf="!isEditing"
+        >
+          Create
+        </button>
+        <button mat-raised-button (click)="goBack()">Go Back</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>
