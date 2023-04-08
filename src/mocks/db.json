@@ -25,10 +25,6 @@
       "name": "Mulher Gato"
     },
     {
-      "id": 7,
-      "name": "Capitã Marvel"
-    },
-    {
       "id": 8,
       "name": "Hulk"
     },
@@ -43,10 +39,6 @@
     {
       "name": "Wescleys",
       "id": 11
-    },
-    {
-      "name": "Roger",
-      "id": 12
     }
   ]
 }

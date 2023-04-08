@@ -50,6 +50,16 @@ export class HeroService {
       );
   }
 
+  deleteHero(hero: Hero): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${hero.id}`).pipe(
+      tap(() => {
+        this.messageService.add(
+          `HeroService: ${hero.name} successfully deleted`
+        );
+      })
+    );
+  }
+
   private log(message: string): void {
     this.messageService.add(`HeroService: ${message}`);
   }

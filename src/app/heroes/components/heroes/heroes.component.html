@@ -3,6 +3,7 @@
   <button mat-raised-button color="primary" routerLink="new">New Hero</button>
 </div>
 <mat-table [dataSource]="heroes">
+  <!-- id -->
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
     <mat-cell *matCellDef="let row">
@@ -10,9 +11,24 @@
     </mat-cell>
   </ng-container>
 
+  <!-- name -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button
+        mat-icon-button
+        matTooltip="Delete this item"
+        (click)="deleteHero(row); $event.stopPropagation()"
+      >
+        <mat-icon> delete </mat-icon>
+      </button>
+    </mat-cell>
   </ng-container>
 
   <!-- Header and Row Declarations -->
