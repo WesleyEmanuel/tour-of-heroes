@@ -2,6 +2,10 @@
   <h2>My Heroes</h2>
   <button mat-raised-button color="primary" routerLink="new">New Hero</button>
 </div>
+<app-hero-search
+  [label]="'Hero to delete'"
+  (selected)="onSelected($event)"
+></app-hero-search>
 <mat-table [dataSource]="heroes">
   <!-- id -->
   <ng-container matColumnDef="id">
