@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
     // app
+    AuthModule,
     AppRoutingModule,
     CoreModule,
   ],

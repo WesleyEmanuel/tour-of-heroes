@@ -5,14 +5,34 @@
 >
   <span>{{ title }}</span>
   <div>
-    <button
-      mat-icon-button
-      aria-label="Dashboard"
-      *ngFor="let menuItem of menuItems"
-      [matTooltip]="menuItem.toolTipText"
-      (click)="navigateTo(menuItem.routerLink)"
+    <div *ngIf="isLoggedIn" fxLayout="row" fxLayoutAlign="space-around center">
+      <button
+        mat-icon-button
+        aria-label="Dashboard"
+        *ngFor="let menuItem of menuItems"
+        [matTooltip]="menuItem.toolTipText"
+        (click)="navigateTo(menuItem.routerLink)"
+      >
+        <mat-icon>{{ menuItem.icon }}</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon style="transform: scale(1.4)">account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onLogout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
+    </div>
+
+    <a
+      mat-button
+      matTooltip="Login into app"
+      *ngIf="!isLoggedIn"
+      routerLink="login"
     >
-      <mat-icon>{{ menuItem.icon }}</mat-icon>
-    </button>
+      Login
+    </a>
   </div>
 </mat-toolbar>

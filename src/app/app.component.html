@@ -1,6 +1,11 @@
-<app-toolbar [title]="title" [menuItems]="menuItems"></app-toolbar>
+<app-toolbar
+  [title]="title"
+  [menuItems]="menuItems"
+  [isLoggedIn]="isLoggedIn$ | async"
+  (logout)="onLogout()"
+></app-toolbar>
 <div class="content" fxLayoutGap="1rem">
   <app-loading></app-loading>
   <router-outlet></router-outlet>
-  <app-messages></app-messages>
+  <app-messages *ngIf="isLoggedIn$ | async"></app-messages>
 </div>

@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HeroesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: ':id',
     component: HeroDetailComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
