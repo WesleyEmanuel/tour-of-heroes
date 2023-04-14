@@ -25,7 +25,7 @@ const MODULES = [MaterialModule, FlexLayoutModule, RouterModule];
 @NgModule({
   declarations: [COMPONENTS],
   imports: [CommonModule, MODULES],
-  exports: [COMPONENTS, MODULES],
+  exports: [COMPONENTS],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
